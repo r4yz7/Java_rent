@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="section/head :: head">
+    <meta charset="UTF-8">
+    <title>Clients</title>
+
+</head>
+<header th:insert="section/header ::header"></header>
+<body>
+<div class="container mt-4">
+    <div class="mb-3">
+        <h1 style="text-align: center">Apartments</h1>
+        <a class="btn btn-outline-secondary" href="/apartments/addApartment">Add apartment</a>
+    </div>
+
+    <div class="border p-4">
+        <div th:each="apartment:${apartments}" class="card-body">
+            <h5 class="card-title" th:text="'Address: ' + ${apartment.address}"></h5>
+            <p class="card-text" th:text="'Area: ' + ${apartment.getArea()}"></p>
+            <p class="card-text" th:text="'Rooms: ' + ${apartment.getRooms()}"></p>
+            <p class="card-text" th:text="'Landlord: ' + ${apartment.landlord.getCompanyName()}"></p>
+            <hr>
+        </div>
+
+    </div>
+</div>
+</body>
+<footer th:insert="section/footer ::footer"></footer>
+
+</html>

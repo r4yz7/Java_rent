@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="section/head :: head">
+    <meta charset="UTF-8">
+    <title>Add apartment</title>
+
+</head>
+<header th:insert="section/header ::header"></header>
+<body>
+    <div class="container">
+        <form method="post" action="/apartments/addApartment">
+            <div class="mb-3">
+                <label class="form-label" for="address">Address</label>
+                <input type="text" name="address" id="address" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="area">Area</label>
+                <input type="number" name="area" id="area" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="rooms">Rooms</label>
+                <input type="number" name="rooms" id="rooms" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="landlordId">Landlord</label>
+                <select class="form-select" name="landlordId" id="landlordId">
+                    <option th:each="landlord:${landlords}" th:value="${landlord.getId()}" th:text="${landlord.getCompanyName()}"></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Add</button>
+        </form>
+    </div>
+</body>
+<footer th:insert="section/footer ::footer"></footer>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="section/head :: head">
+    <meta charset="UTF-8">
+    <title>Clients</title>
+
+</head>
+<header th:insert="section/header ::header"></header>
+<body>
+<div class="container">
+    <h1 style="text-align: center">Landlords</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Company name</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item:${landlords}">
+            <td th:text="${item.getId()}"></td>
+            <td th:text="${item.getCompanyName()}"></td>
+            <td th:text="${item.getEmail()}"></td>
+            <td ><a th:href="'landlord/'+${item.getId()}+'/delete'" class="btn btn-outline-danger">Delete</a></td>
+            <td><a th:href="'landlord/'+${item.getId()}+'/edit'" class="btn btn-outline-warning">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+<footer th:insert="section/footer ::footer"></footer>
+</html>
